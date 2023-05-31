@@ -1,5 +1,5 @@
 
-AddEventHandler('gameEventTriggered', function(name,args)
+AddEventHandler('GrejRewardKill:event', function(name,args)
 
 	if (name ~= 'CEventNetworkEntityDamage') then return end;
 
@@ -13,7 +13,7 @@ end)
 function killEvent(victim, killer)
 
 	if (victim == PlayerPedId()) then 
-		TriggerServerEvent('death:event')
+		TriggerServerEvent('GrejRewardKill:event')
 		return
 	end;
 	local victimsvid = GetPlayerServerId(NetworkGetPlayerIndexFromPed(victim))
@@ -21,5 +21,5 @@ function killEvent(victim, killer)
 	local killersvid = GetPlayerServerId(NetworkGetPlayerIndexFromPed(killer))
 	if (killersvid == 0) then return end; 
 	
-	exports['tu wpisz nazwe skryptu na notyfikacje']:Alert('Ranking', 'Otrzymałeś pączki za zabójstwo!', 2000, 'info')
+	exports['skrypt na notyfikacje']:Alert('Ranking', 'Otrzymałeś frytki za zabójstwo!', 2000, 'info')
 end
